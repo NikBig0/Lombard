@@ -1,0 +1,67 @@
+﻿<Page x:Class="Lombard.Pages.AddItemPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Lombard.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="270" d:DesignWidth="800"
+      Title="Добавление и редактирование" Style="{StaticResource base_page}">
+
+    <Grid>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="Auto"/>
+            
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="245"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="BtnSave" Grid.Row="9" Content="Сохранить" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="120" Click="BtnSave_Click"  Grid.Column="1" Margin="213,3,222,0"/>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Логотип" Margin="20 0"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Категория предмета" Margin="20 0"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Наименование предмета" Margin="20 0"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Количество" Margin="20 0"/>
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Продавец" Margin="20 0"/>
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Стоимость" Margin="20 0" />
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="Описание" Margin="20 0"/>
+        <TextBlock Grid.Row="7" Grid.Column="0" Text="Статус" Margin="20 0"/>
+
+        <Image x:Name="ImagePhoto" Source="{Binding GetPhoto}" Grid.Row="0" Grid.Column="1" Margin="10 0 0 0" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="100"/>
+        <Button x:Name="BtnLoad" Grid.Row="0" Grid.Column="0" Margin="120,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BtnLoad_Click"  Content="Загрузить" Width="79"/>
+
+        
+        <ComboBox x:Name="ComboCategory" SelectedItem="{Binding Category}"
+ Grid.Row="1" Grid.Column="1" DisplayMemberPath="Category_name"
+ SelectedValuePath="Category_ID" />
+        <TextBox x:Name="TextBoxProductName" Text="{Binding Item_Name}"
+ Grid.Row="2" Grid.Column="1" Padding="0,2" Height="Auto"/>
+        <TextBox x:Name="TextBoxProductQuantityInStock" Text="{Binding Count}"
+ Grid.Row="3" Grid.Column="1" Padding="0,2" Height="Auto"/>
+        
+
+        <ComboBox x:Name="ComboManufacturer" SelectedItem="{Binding Client}"
+ Grid.Row="4" Grid.Column="1" DisplayMemberPath="FIO"
+ SelectedValuePath="Client_ID" />
+
+        <TextBox x:Name="TextBoxProductCost" Text="{Binding evaluation_cost, ConverterCulture='ru-RU'}" 
+ Grid.Row="5" Grid.Column="1" Padding="0,2" Height="Auto"/>
+        <TextBox x:Name="TextBoxProductDescription" Text="{Binding Description}"
+TextWrapping="Wrap"
+ Grid.Row="6" Grid.Column="1" Padding="0,2" Height="Auto"/>        <ComboBox x:Name="CmbStatus" SelectedItem="{Binding ItemStatu}" Grid.Row="7" Grid.Column="1" DisplayMemberPath="Status_name" SelectedValuePath="Status_ID"></ComboBox>
+
+
+    </Grid>
+</Page>

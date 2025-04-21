@@ -1,0 +1,43 @@
+﻿<Page x:Class="Lombard.Pages.OrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Lombard.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OrderPage" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <DataGrid x:Name="DataGridUslugi" Grid.Row="0"
+  AutoGenerateColumns="False"
+  IsReadOnly="True"
+  RowHeight="30"
+  SelectionMode="Single"
+  LoadingRow="DataGridUslugi_LoadingRow">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Deal_id}" Header="Номер заказа" Width="5*"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Item.Item_Name}" Header="Номер заказа" Width="5*"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Date, StringFormat={}{0:dd/MM/yyyy}}" Header="Дата создания заказа" Width="5*"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Client.FIO}" Header="Заказчик" Width="10*"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Cost}" Header="Цена" Width="2*"></DataGridTextColumn>
+                <!--<DataGridTemplateColumn Width="Auto" Header="Редактировать">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnEdits" Content="..." Click="BtnEdits_Click"  Margin="0"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>-->
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="1" Background="GreenYellow"></Grid>
+        <!--<Button x:Name="BtnAddOrder" Grid.Row="1" Width="100" HorizontalAlignment="Left" Margin="3" Content="Добавить" Click="BtnAddOrder_Click"></Button>-->
+        <!--<Button x:Name="BtnProduct" Grid.Row="1" Width="100" HorizontalAlignment="Center" Margin="3" Content="Товары" Click="BtnProduct_Click"></Button>-->
+        <Button x:Name="BtnDeleteOrder" Grid.Row="1" Width="100" HorizontalAlignment="Right" Margin="3" Content="Удалить" Click="BtnDeleteOrder_Click"></Button>
+    </Grid>
+</Page>
